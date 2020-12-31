@@ -27,9 +27,9 @@ router.get('/card', function(req, res, next) {
             // Shortcut, cba doing anything else
             sessionData = result[0];
 
-            r.table('cards').filter({ userId: result.discordId}).then(result => {
+            r.table('cards').filter({ userId: sessionData.discordId }).then(bingoCards => {
 
-                let bingoCard = result.length > 0 ? result[0].bingoCard : [];
+                let bingoCard = bingoCards.length > 0 ? bingoCards[0].bingoCard : [];
 
                 res.render('card', { title: '2021 - Bingo', displayName: `${sessionData.username}#${sessionData.discriminator}`, bingo: bingoCard });
 
@@ -61,8 +61,21 @@ router.post('/card', function (req, res) {
 
                 if(result.length > 0) r.table('cards').filter({ userId: sessionData.discordId}).delete().run();
 
+                let bingoArray = [];
+
+                bingoArray[0] = req.body['bingo-1'] ? req.body['bingo-1'] : '';
+                bingoArray[1] = req.body['bingo-2'] ? req.body['bingo-2'] : '';
+                bingoArray[2] = req.body['bingo-3'] ? req.body['bingo-3'] : '';
+                bingoArray[3] = req.body['bingo-4'] ? req.body['bingo-4'] : '';
+                bingoArray[4] = req.body['bingo-5'] ? req.body['bingo-5'] : '';
+                bingoArray[5] = req.body['bingo-6'] ? req.body['bingo-6'] : '';
+                bingoArray[6] = req.body['bingo-7'] ? req.body['bingo-7'] : '';
+                bingoArray[7] = req.body['bingo-8'] ? req.body['bingo-8'] : '';
+
+                console.log(bingoArray)
+
                 r.table('cards').insert({ userId: sessionData.discordId, displayName: sessionData.username, bingoCard: bingoArray }).then(result => {
-                    res.render('card', { title: '2021 - Bingo', displayName: `${sessionData.username}#${sessionData.discriminator}`, bingo: bingoArray });
+                    res.render('card', { title: '2021 - Bingo', displayName: `${sessionData.username}#${sessionData.discriminator}`, bingo: bingoArray, saved: true });
                 })
 
 
@@ -74,21 +87,6 @@ router.post('/card', function (req, res) {
 
 
     }
-
-    let bingoArray = [];
-
-    bingoArray[0] = req.body['bingo-1'] ? req.body['bingo-1'] : '';
-    bingoArray[1] = req.body['bingo-2'] ? req.body['bingo-2'] : '';
-    bingoArray[2] = req.body['bingo-3'] ? req.body['bingo-3'] : '';
-    bingoArray[3] = req.body['bingo-4'] ? req.body['bingo-4'] : '';
-    bingoArray[4] = req.body['bingo-5'] ? req.body['bingo-5'] : '';
-    bingoArray[5] = req.body['bingo-6'] ? req.body['bingo-6'] : '';
-    bingoArray[6] = req.body['bingo-7'] ? req.body['bingo-7'] : '';
-    bingoArray[7] = req.body['bingo-8'] ? req.body['bingo-8'] : '';
-
-
-
-    console.log(bingoArray)
 
 })
 

@@ -58,3 +58,12 @@ input[type='submit']:hover {
   font-weight: bold;
   text-align: center;
 }
+
+.message.success {
+  display: block;
+  background: orange;
+  padding: 0 1em;
+  font-weight: bolder;
+  border: 1px solid white;
+  box-sizing: border-box;
+}
