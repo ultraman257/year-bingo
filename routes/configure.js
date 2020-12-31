@@ -21,7 +21,7 @@ router.get('/card', function(req, res, next) {
 
             if(result > 0) {
                 res.clearCookie('kid');
-                return res.redirect('/login')
+                return res.redirect('/')
             }
 
             // Shortcut, cba doing anything else
