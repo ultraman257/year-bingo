@@ -41,7 +41,7 @@ router.get('/card', function(req, res, next) {
 
 
     } else {
-        return res.redirect('/login')
+        return res.redirect('/')
     }
 
 
