@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Hey, #{displayName}
+  p Below is your bingo card, you can choose upto 9 items and have until the 7th of January before they're locked in for 2021.
+  form(method='post')
+      input(type='text' name='bingo-1' value=bingo[0])
+      input(type='text' name='bingo-2' value=bingo[1])
+      input(type='text' name='bingo-3' value=bingo[2])
+      input(type='text' name='bingo-4' value=bingo[3])
+      input(type='text' name='bingo-5' value=bingo[4])
+      input(type='text' name='bingo-6' value=bingo[5])
+      input(type='text' name='bingo-7' value=bingo[6])
+      input(type='text' name='bingo-8' value=bingo[7])
+      input(type='text' name='bingo-9' value=bingo[8])
+      input(type='submit' value='Save' )

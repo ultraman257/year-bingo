@@ -1,0 +1,60 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #333;
+  color: snow;
+}
+
+a {
+  color: #00B7FF;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin: 1em 0;
+  box-sizing: border-box;
+}
+
+input[type='text'] {
+  background: #2a2a2a;
+  padding: 1em;
+  color: white;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+input[type='text']:focus {
+  border: 1px solid snow;
+}
+
+input[type='submit'] {
+  background: orange;
+  padding: 1em;
+  border: none;
+  font-weight: bold;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+input[type='submit']:hover {
+  background: darkorange;
+}
+
+.hero {
+  width: 30%;
+  min-width: 400px;
+  margin: 0 auto;
+}
+
+.login-button {
+  background: #7289DA;
+  padding: 1em;
+  box-sizing: border-box;
+  margin: 1em 0;
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
