@@ -31,7 +31,7 @@ router.get('/card', function(req, res, next) {
 
                 let bingoCard = bingoCards.length > 0 ? bingoCards[0].bingoCard : [];
 	
-	            r.table('cards').filter({ userId: sessionData.discordId }).then(card => {
+	            r.table('cards').then(card => {
 								
 								let items = card.map(c => {
 									return { bingoCard: c.bingoCard, displayName: c.displayName };
