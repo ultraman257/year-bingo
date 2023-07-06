@@ -85,7 +85,17 @@ router.post('/card', function (req, res) {
                 console.log(bingoArray)
 
                 r.table('cards').insert({ userId: sessionData.discordId, displayName: sessionData.username, bingoCard: bingoArray }).then(result => {
-                    res.render('card', { title: '2021 - Bingo', displayName: `${sessionData.username}#${sessionData.discriminator}`, bingo: bingoArray, saved: true });
+	
+	                r.table('cards').then(card => {
+		
+		                let items = card.map(c => {
+			                return {bingoCard: c.bingoCard, displayName: c.displayName};
+		                })
+		                
+		                return res.render('card', { title: '2021 - Bingo', displayName: `${sessionData.username}#${sessionData.discriminator}`, bingo: bingoArray, saved: true, cards: items });
+	               
+	                })
+									
                 })
 
 
