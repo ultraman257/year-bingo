@@ -47,8 +47,14 @@ input[type='submit']:hover {
   margin: 0 auto;
 }
 
+
+h1 {
+  border-left: 4px solid #D8943C;
+  padding-left: 10px;
+}
+
 .login-button {
-  background: #7289DA;
+  background: #D8943C;
   padding: 1em;
   box-sizing: border-box;
   margin: 1em 0;
