@@ -73,3 +73,40 @@ h1 {
   border: 1px solid white;
   box-sizing: border-box;
 }
+
+.cards .card {
+    background:  #1e1e1e;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+}
+
+.cards .card p {
+    color: white;
+    font-size: 1.25em;
+    font-weight: bolder;
+}
+
+.cards .card .flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+    margin-right: -1em;
+}
+
+.cards .card .flex .card-flex {
+    display: inline-block;
+    width: 208px;
+    background: white;
+    min-height: 200px;
+    color: #333;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-right: 1em;
+    flex-wrap: revert;
+}
+
+.cards .card .flex .card-flex p {
+    color: #333;
+}

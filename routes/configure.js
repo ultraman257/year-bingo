@@ -30,8 +30,17 @@ router.get('/card', function(req, res, next) {
             r.table('cards').filter({ userId: sessionData.discordId }).then(bingoCards => {
 
                 let bingoCard = bingoCards.length > 0 ? bingoCards[0].bingoCard : [];
-
-                res.render('card', { title: '2021 - Bingo', displayName: `${sessionData.username}#${sessionData.discriminator}`, bingo: bingoCard });
+	
+	            r.table('cards').filter({ userId: sessionData.discordId }).then(card => {
+								
+								let items = card.map(c => {
+									return { bingoCard: c.bingoCard, displayName: c.displayName };
+								})
+		            
+		            return res.render('card', { title: '2021 - Bingo', displayName: `${sessionData.username}#${sessionData.discriminator}`, bingo: bingoCard, cards: items });
+								
+	            })
+								
 
             })
 
@@ -71,6 +80,7 @@ router.post('/card', function (req, res) {
                 bingoArray[5] = req.body['bingo-6'] ? req.body['bingo-6'] : '';
                 bingoArray[6] = req.body['bingo-7'] ? req.body['bingo-7'] : '';
                 bingoArray[7] = req.body['bingo-8'] ? req.body['bingo-8'] : '';
+                bingoArray[8] = req.body['bingo-9'] ? req.body['bingo-9'] : '';
 
                 console.log(bingoArray)
 

@@ -18,3 +18,13 @@ block content
       input(type='text' name='bingo-8' value=bingo[7])
       input(type='text' name='bingo-9' value=bingo[8])
       input(type='submit' value='Save' )
+
+  div(class='cards')
+      each val in cards
+        div(class='card')
+            p #{val.displayName}
+            div(class='flex')
+                each card in val.bingoCard
+                    div(class='card-flex')
+                      p #{card}
+
